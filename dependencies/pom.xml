@@ -18,6 +18,8 @@
         <jackson-bom.version>2.11.1</jackson-bom.version>
         <h2.version>2.1.214</h2.version>
         <mockito.version>3.12.4</mockito.version>
+        <spring-cloud.version>2022.0.5</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <dubbo.version>3.0.5</dubbo.version>
         <alibaba-dubbo.version>2.6.12</alibaba-dubbo.version>
         <slf4j-api.version>2.0.9</slf4j-api.version>
@@ -26,7 +28,7 @@
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <spring-boot.version>3.0.13</spring-boot.version>
         <apollo.version>1.9.1</apollo.version>
-        <consul.version>2.2.4.RELEASE</consul.version>
+        <consul.version>4.0.4</consul.version>
         <jetcd.version>0.7.3</jetcd.version>
         <polaris.version>1.7.2</polaris.version>
         <rocketmq.version>2.2.2</rocketmq.version>
@@ -34,11 +36,6 @@
         <elasticsearch.version>6.8.17</elasticsearch.version>
         <tomcat-embed-core.version>10.1.16</tomcat-embed-core.version>
         <curator-framework.version>5.1.0</curator-framework.version>
-        <spring-cloud-starter-stream-rocketmq.version>2.2.6.RELEASE</spring-cloud-starter-stream-rocketmq.version>
-        <spring-cloud-starter-stream-rabbitmq.version>3.1.0</spring-cloud-starter-stream-rabbitmq.version>
-        <spring-cloud-starter-netflix-hystrix.version>2.2.9.RELEASE</spring-cloud-starter-netflix-hystrix.version>
-        <spring-cloud-starter-alibaba-nacos-config.version>2.2.5.RELEASE
-        </spring-cloud-starter-alibaba-nacos-config.version>
     </properties>
 
     <dependencyManagement>
@@ -111,11 +108,6 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-consul-config</artifactId>
-                <version>${consul.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.etcd</groupId>
@@ -196,25 +188,20 @@
                 <artifactId>curator-framework</artifactId>
                 <version>${curator-framework.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
-                <version>${spring-cloud-starter-stream-rocketmq.version}</version>
-            </dependency>
+            <!--spring cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-                <version>${spring-cloud-starter-stream-rabbitmq.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-                <version>${spring-cloud-starter-netflix-hystrix.version}</version>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>${spring-cloud-starter-alibaba-nacos-config.version}</version>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

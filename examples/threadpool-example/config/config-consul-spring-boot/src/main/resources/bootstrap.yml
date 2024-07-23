@@ -16,3 +16,5 @@ spring:
         data-key: hippo4j-consul
         default-context: application
         prefix: config
+  config:
+    import: classpath:consul-config.properties
